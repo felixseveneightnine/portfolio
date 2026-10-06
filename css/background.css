@@ -1,89 +1,234 @@
-/* body {
-  margin: 0;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #333,
-    #333 2px,
-    transparent 2px,
-    transparent 10px
-  );
-  background-size: 20px 20px;
-  animation: moveLines 10s linear infinite;
-}
+/* the moving dots background */
+/* there are 3 groups of dots, every group moves to the bottom right */
+/* small stars = fast, big planets = slow */
+/* the stars use real star colors (blue, white, yellow, orange, red) */
+/* and the planets have their own colors */
 
-@keyframes moveLines {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 20px 20px;
-  }
-} */
+/* the small stars, these ones move the fastest */
+html::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
 
-body {
-
-    /* margin: 0; */
-    /* height: 100vh; */
-    /* background-image: repeating-linear-gradient(
-        0deg,
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.08) 1px,
-        transparent 1px,
-        transparent 30px
-    ); */
-    /* background-image: radial-gradient(
-        circle,
-        rgba(255,255,255,0.15) 1px,
-        transparent 1px
-    ); */
-
-    /* background-size: 40px 40px; */
-    /* animation: moveLines 4s linear infinite; */
-
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-
+    left: -520px;
+    top: -690px;
+    width: calc(100vw + 520px);
+    height: calc(100vh + 690px);
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,0.30) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.30) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.30) 1px, transparent 1px);
+        radial-gradient(circle, rgba(248,247,255,0.7) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255,210,161,0.45) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(248,247,255,0.7) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.45) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,244,210,0.7) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255,244,210,0.7) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(202,215,255,0.7) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,180,150,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.45) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(155,176,255,0.55) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(248,247,255,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,180,150,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,180,150,0.7) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.45) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.7) 1px, transparent 2px),
+        radial-gradient(circle, rgba(248,247,255,0.55) 1px, transparent 2px),
+        radial-gradient(circle, rgba(202,215,255,0.55) 1px, transparent 2px);
+
+    background-position:
+        494px 543px,
+        79px 237px,
+        301px 630px,
+        110px 24px,
+        509px 263px,
+        47px 394px,
+        291px 433px,
+        434px 288px,
+        437px 208px,
+        234px 130px,
+        167px 673px,
+        249px 18px,
+        180px 402px,
+        347px 562px,
+        345px 225px,
+        242px 585px,
+        187px 252px,
+        517px 340px,
+        366px 10px,
+        510px 461px;
 
     background-size:
-        60px 60px,
-        90px 90px,
-        140px 140px;
-    
-    background-position:
-        0 0,
-        30px 50px,
-        70px 20px;
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px,
+        520px 690px;
 
-    animation: moveDots 3s linear infinite;
+    animation: moveDots1 45s linear infinite;
 }
 
-/* @keyframes moveLines {
-  from { background-position: 0 0; }
-  to { background-position: 0px 40px; }
-} */
-
-@keyframes moveDots {
+@keyframes moveDots1 {
     from {
-        background-position:
-            0 0,
-            30px 50px,
-            70px 20px;
+        transform: translate(0px, 0px);
     }
     to {
-        background-position:
-            -60px 60px,
-            120px 140px,
-            210px 160px;
+        transform: translate(520px, 690px);
+    }
+}
+
+/* the medium stars, normal speed */
+body::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+
+    left: -860px;
+    top: -760px;
+    width: calc(100vw + 860px);
+    height: calc(100vh + 760px);
+
+    background-image:
+        radial-gradient(circle, rgba(255,180,150,0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,244,210,0.8) 2.5px, transparent 3.5px),
+        radial-gradient(circle, rgba(155,176,255,0.8) 3px, transparent 4px),
+        radial-gradient(circle, rgba(248,247,255,0.8) 2px, transparent 3px),
+        radial-gradient(circle, rgba(248,247,255,0.7) 2.5px, transparent 3.5px),
+        radial-gradient(circle, rgba(255,244,210,0.7) 2.5px, transparent 3.5px),
+        radial-gradient(circle, rgba(248,247,255,0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(248,247,255,0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,244,210,0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,180,150,0.6) 2.5px, transparent 3.5px),
+        radial-gradient(circle, rgba(255,180,150,0.6) 3px, transparent 4px),
+        radial-gradient(circle, rgba(248,247,255,0.6) 3px, transparent 4px),
+        radial-gradient(circle, rgba(202,215,255,0.6) 3px, transparent 4px),
+        radial-gradient(circle, rgba(255,210,161,0.7) 3px, transparent 4px);
+
+    background-position:
+        347px 273px,
+        177px 6px,
+        765px 277px,
+        856px 123px,
+        731px 516px,
+        351px 714px,
+        515px 504px,
+        121px 361px,
+        443px 120px,
+        547px 640px,
+        191px 477px,
+        97px 221px,
+        605px 391px,
+        4px 686px;
+
+    background-size:
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px,
+        860px 760px;
+
+    animation: moveDots2 90s linear infinite;
+}
+
+@keyframes moveDots2 {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(860px, 760px);
+    }
+}
+
+/* the big planets, these ones move the slowest */
+body::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+
+    left: -1600px;
+    top: -1150px;
+    width: calc(100vw + 1600px);
+    height: calc(100vh + 1150px);
+
+    background-image:
+        radial-gradient(circle, rgba(240,222,150,0.85) 6px, rgba(240,222,150,0.35) 7px, rgba(240,222,150,0.12) 10px, transparent 18px),
+        radial-gradient(circle, rgba(240,222,150,0.8) 5px, rgba(240,222,150,0.35) 6px, rgba(240,222,150,0.12) 9px, transparent 15px),
+        radial-gradient(circle, rgba(130,220,190,0.9) 7px, rgba(130,220,190,0.35) 8px, rgba(130,220,190,0.12) 11px, transparent 21px),
+        radial-gradient(circle, rgba(130,220,190,0.8) 6px, rgba(130,220,190,0.35) 7px, rgba(130,220,190,0.12) 10px, transparent 18px),
+        radial-gradient(circle, rgba(240,222,150,0.8) 6px, rgba(240,222,150,0.35) 7px, rgba(240,222,150,0.12) 10px, transparent 18px),
+        radial-gradient(circle, rgba(212,120,80,0.8) 7px, rgba(212,120,80,0.35) 8px, rgba(212,120,80,0.12) 11px, transparent 21px),
+        radial-gradient(circle, rgba(212,120,80,0.8) 6px, rgba(212,120,80,0.35) 7px, rgba(212,120,80,0.12) 10px, transparent 18px),
+        radial-gradient(circle, rgba(150,205,235,0.9) 6px, rgba(150,205,235,0.35) 7px, rgba(150,205,235,0.12) 10px, transparent 18px),
+        radial-gradient(circle, rgba(240,222,150,0.9) 5px, rgba(240,222,150,0.35) 6px, rgba(240,222,150,0.12) 9px, transparent 15px),
+        radial-gradient(circle, rgba(180,150,230,0.9) 7px, rgba(180,150,230,0.35) 8px, rgba(180,150,230,0.12) 11px, transparent 21px);
+
+    background-position:
+        1258px 963px,
+        90px 531px,
+        682px 539px,
+        617px 1009px,
+        1134px 585px,
+        1220px 171px,
+        261px 961px,
+        768px 194px,
+        283px 256px,
+        924px 846px;
+
+    background-size:
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px,
+        1600px 1150px;
+
+    animation: moveDots3 220s linear infinite;
+}
+
+@keyframes moveDots3 {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(1600px, 1150px);
+    }
+}
+
+/* on phones there is not much space so i hide the small stars */
+@media screen and (max-width: 480px) {
+    html::before {
+        display: none;
     }
 }

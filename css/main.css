@@ -86,12 +86,47 @@ header nav a {
     margin: 0px 20px;
 }
 
+.myself {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+}
+
 .main-left {
     width: 70%;
 }
 
 .main-right {
     width: 30%;
+}
+
+.about-left {
+    width: 50%;
+}
+
+.about-right {
+    width: 50%;
+}
+
+.main-right img {
+    width: 100%;
+    border-radius: .7em;
+}
+
+.about-right img {
+    width: 100%;
+    border-radius: .7em;
+}
+
+@media screen and (max-width: 768px) {
+    .myself {
+        flex-direction: column-reverse;
+    }
+
+    .main-left, .main-right {
+        width: 100%;
+    }
 }
 
 hr {
